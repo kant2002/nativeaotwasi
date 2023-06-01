@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RuntimeIdentifier>wasi-wasm</RuntimeIdentifier>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <WasmSingleFileBundle Condition="$(IsWasiProject) == true">true</WasmSingleFileBundle>
+  </PropertyGroup>
+
+  <ItemGroup Condition="$(IsWasiProject) != true">
+    <PackageReference Include="Microsoft.DotNet.ILCompiler.LLVM" Version="8.0.0-*" />
+    <PackageReference Include="runtime.win-x64.Microsoft.DotNet.ILCompiler.LLVM" Version="8.0.0-*" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(IsWasiProject) != true">
+    <LinkerArg Include="-Wl,--import-memory,--export-memory" />
+  </ItemGroup>
+
+</Project>
