@@ -36,7 +36,7 @@ Fri, Jun  2, 2023  2:19:38 AM
 Fri, Jun  2, 2023  2:20:33 AM
 ```
 
-# Parsing 25 Mb JSON
+# Parsing 100 Kb JSON
 
 ```
 curl https://raw.githubusercontent.com/json-iterator/test-data/master/large-file.json -O large-file.json
